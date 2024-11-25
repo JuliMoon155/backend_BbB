@@ -1,12 +1,11 @@
-const { Pool } = require("pg");
+const { Pool } = require('pg');
 
 // Configuración de conexión
 const config = {
-  user: "postgres",
-  host: "localhost",
-  database: "brick2",
-  password: "1234",
-  port: 5432,
+  connectionString: process.env.DATABASE_URL, // Usa la variable de entorno
+  ssl: {
+    rejectUnauthorized: false, // Requerido para Railway u otros servicios que usen SSL
+  },
 };
 
 const pool = new Pool(config);

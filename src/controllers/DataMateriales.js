@@ -2,11 +2,10 @@ const { Pool } = require('pg');
 
 // Configuración de conexión
 const config = {
-  user: 'postgres',      // El usuario de tu base de datos
-  host: 'localhost',       // El host donde corre PostgreSQL (generalmente localhost)
-  database: 'brick2', // El nombre de tu base de datos
-  password: '1234', // La contraseña del usuario
-  port: 5432,              // El puerto de PostgreSQL, por defecto es 5432
+  connectionString: process.env.DATABASE_URL, // Usa la variable de entorno
+  ssl: {
+    rejectUnauthorized: false, // Requerido para Railway u otros servicios que usen SSL
+  },
 };
 
 const pool = new Pool(config);
