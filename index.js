@@ -11,9 +11,10 @@ const connectionString = process.env.DATABASE_URL;
 
 // Configuración de CORS
 const corsOptions = {
-    origin: 'https://ladrilloaladrillo-production.up.railway.app',  // La URL de tu frontend (aquí debe ir tu URL de frontend en Railway)
+    origin: 'https://ladrilloaladrillo-production.up.railway.app',  // Asegúrate de que esta URL sea la correcta
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,  // Permitir el uso de cookies o credenciales
   };
 
 app.use(cors(corsOptions));
