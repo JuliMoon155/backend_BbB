@@ -6,7 +6,7 @@ const cors = require('cors');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const connectionString = process.env.DATABASE_URL;
 
 // Configuración de CORS
@@ -36,3 +36,8 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
+
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok' });
+  });
+  
